@@ -36,7 +36,7 @@ class _DetailResepScreenState extends State<DetailResepScreen> {
   Widget build(BuildContext context) {
     //  final res = Provider.of<ResepDetailProvider>(context,listen: false).showDetailResep(widget.id);
     //  print(res);
-    int counter = 0;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("${widget.title}"),
@@ -74,11 +74,15 @@ class _DetailResepScreenState extends State<DetailResepScreen> {
                         "Lama Pengerjaan : ${resepProvider.detailResepModel.results!.times}"),
                     SizedBox(height: 10.0),
                     Text(
-                        "Kesulitan : ${resepProvider.detailResepModel.results!.dificulty}"),
+                        "Level Pengerjaan : ${resepProvider.detailResepModel.results!.dificulty}"),
                     SizedBox(height: 10.0),
                     Text(
                         "Penulis : ${resepProvider.detailResepModel.results!.author!.user}"),
                     SizedBox(height: 10.0),
+                    Text(
+                        "Penulis : ${resepProvider.detailResepModel.results!.author!.datePublished}"),
+                    SizedBox(height: 10.0),
+
                     Text(
                         "Deskripsi : ${resepProvider.detailResepModel.results!.desc}"),
                     SizedBox(height: 10.0),
@@ -100,19 +104,10 @@ class _DetailResepScreenState extends State<DetailResepScreen> {
                     SizedBox(height: 10.0),
                     Text(
                         "Bahan-Bahan : ${resepProvider.detailResepModel.results!.ingredient}"),
+
                     SizedBox(height: 10.0),
-                    ListView.builder(
-                        itemCount: resepProvider
-                            .detailResepModel.results!.step!.length,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            child : Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child : Text(
-                                  "${resepProvider.detailResepModel.results!.step![index]}"),
-                            ),
-                          );
-                        }),
+                    Text("STEP : "),
+                    Text("${resepProvider.detailResepModel.results!.step}"),
                   ],
                 ),
               ),
